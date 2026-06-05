@@ -20,16 +20,19 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				cormorant: ['Cormorant Garamond', 'Georgia', 'serif'],
-				dm: ['DM Sans', 'sans-serif'],
+				playfair: ['Playfair Display', 'Georgia', 'serif'],
+				nunito: ['Nunito', 'sans-serif'],
 			},
 			colors: {
-				clinic: {
-					navy: '#1B2B4B',
-					teal: '#2A7B6F',
-					cream: '#F8F5F0',
-					gold: '#C4975A',
-					lightblue: '#EAF2F8',
+				warm: {
+					ivory: '#FAF7F2',
+					sand: '#F0EAE0',
+					sage: '#7C9E8A',
+					'sage-light': '#EAF0EB',
+					'sage-dark': '#4A7360',
+					stone: '#8C7B6B',
+					bark: '#3D3330',
+					blush: '#F2E8E0',
 				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
