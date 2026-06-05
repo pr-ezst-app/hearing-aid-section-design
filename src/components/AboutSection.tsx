@@ -1,183 +1,176 @@
 import Icon from "@/components/ui/icon";
 
-const pillars = [
-  {
-    icon: "Ear",
-    title: "Precise Hearing Assessments",
-    desc: "We take the time to truly understand your hearing profile — no rush, no pressure.",
-  },
-  {
-    icon: "HandHeart",
-    title: "Gentle, Unhurried Care",
-    desc: "Every appointment is designed around you. Your comfort and clarity matter most.",
-  },
-  {
-    icon: "Leaf",
-    title: "Natural Fit & Feel",
-    desc: "Modern hearing aids that feel invisible and natural — not like a device, but like yourself.",
-  },
+const stats = [
+  { value: "20+", label: "Years of Experience" },
+  { value: "8,500+", label: "Patients Helped" },
+  { value: "15", label: "Certified Specialists" },
+  { value: "98%", label: "Satisfaction Rate" },
 ];
 
-const milestones = [
-  { year: "2004", text: "Clinic founded with a single purpose: compassionate hearing care." },
-  { year: "2011", text: "Expanded to a full audiology center with a specialist team." },
-  { year: "2019", text: "Introduced the latest invisible hearing aid technologies." },
-  { year: "Today", text: "Over 8,500 patients living with clearer, richer hearing." },
+const values = [
+  {
+    icon: "Stethoscope",
+    title: "Clinical Excellence",
+    desc: "Board-certified audiologists with advanced diagnostics and evidence-based treatment protocols.",
+  },
+  {
+    icon: "Heart",
+    title: "Patient-Centered Care",
+    desc: "We listen to your concerns, your lifestyle, and your goals before recommending any solution.",
+  },
+  {
+    icon: "ShieldCheck",
+    title: "Trusted Technology",
+    desc: "Partnered with world-leading hearing aid brands — fitted, tuned, and supported by our team.",
+  },
 ];
 
 export default function AboutSection() {
   return (
     <section
       id="about"
-      className="bg-[#FAF7F2] font-nunito overflow-hidden"
+      className="relative bg-[#F8F5F0] overflow-hidden py-24 lg:py-32"
     >
-      {/* ── TOP BAND ── */}
-      <div className="max-w-6xl mx-auto px-6 lg:px-12 pt-24 pb-16">
-        <div className="flex flex-col lg:flex-row lg:items-end gap-10 lg:gap-20">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#EBF0FB] opacity-50 translate-x-1/3 -translate-y-1/4 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#1E3A8A] opacity-5 -translate-x-1/2 translate-y-1/3 pointer-events-none" />
 
-          {/* Heading block */}
-          <div className="flex-1">
-            <p className="text-[#7C9E8A] text-xs tracking-[0.25em] uppercase font-semibold mb-5">
-              Who We Are
-            </p>
-            <h2 className="font-playfair text-5xl lg:text-[4rem] leading-[1.15] text-[#3D3330] font-medium">
-              Hearing care that<br />
-              <em className="italic text-[#7C9E8A]">feels like home.</em>
-            </h2>
-          </div>
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
 
-          {/* Intro text */}
-          <div className="flex-1 lg:pb-2">
-            <p className="text-[#6B5E56] leading-[1.8] text-[1.05rem]">
-              Since 2004, our clinic has been a quiet refuge for people navigating hearing loss.
-              We believe in warmth over clinical coldness, and listening before prescribing.
-              Every person who walks in is treated as family.
-            </p>
-          </div>
+        {/* Top label */}
+        <div className="flex items-center gap-3 mb-6">
+          <div className="h-px w-10 bg-[#C4975A]" />
+          <span className="text-[#C4975A] text-sm tracking-[0.2em] uppercase font-dm font-medium">
+            About Our Clinic
+          </span>
         </div>
-      </div>
 
-      {/* ── IMAGES + QUOTE BAND ── */}
-      <div className="max-w-6xl mx-auto px-6 lg:px-12 pb-20">
-        <div className="grid lg:grid-cols-5 gap-6 items-stretch">
+        {/* Main grid */}
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-          {/* Main large image */}
-          <div className="lg:col-span-3 rounded-3xl overflow-hidden h-[340px] lg:h-[480px] relative group">
-            <img
-              src="https://cdn.ezst.app/projects/d5a26abe-18bd-4a08-a1ed-2f43f30dcb6d/files/533757a6-ee11-4ea9-a30d-0fe152346a34.jpg"
-              alt="Our warm clinic space"
-              className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#F0EAE0]/20 to-transparent" />
-          </div>
-
-          {/* Right column */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
-
-            {/* Doctor image */}
-            <div className="rounded-3xl overflow-hidden flex-1 min-h-[200px] group">
-              <img
-                src="https://cdn.ezst.app/projects/d5a26abe-18bd-4a08-a1ed-2f43f30dcb6d/files/e9f38773-b33e-4768-a6ce-fb7c3ca34f32.jpg"
-                alt="Our lead audiologist"
-                className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-              />
-            </div>
-
-            {/* Pull quote card */}
-            <div className="bg-[#7C9E8A] rounded-3xl p-7 flex flex-col justify-between min-h-[160px]">
-              <p className="font-playfair text-white text-xl italic leading-relaxed">
-                "We don't just fit hearing aids — we restore the sounds that matter most."
-              </p>
-              <p className="text-white/70 text-sm font-nunito mt-4 font-medium">
-                — Dr. Sarah Linden, Lead Audiologist
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ── THREE PILLARS ── */}
-      <div className="bg-[#F0EAE0]/60 py-20">
-        <div className="max-w-6xl mx-auto px-6 lg:px-12">
-          <p className="text-center text-[#7C9E8A] text-xs tracking-[0.25em] uppercase font-semibold mb-12">
-            Our Approach
-          </p>
-          <div className="grid md:grid-cols-3 gap-6">
-            {pillars.map((p) => (
-              <div
-                key={p.title}
-                className="bg-[#FAF7F2] rounded-3xl p-8 group hover:bg-[#7C9E8A] transition-colors duration-300 cursor-default"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-[#EAF0EB] group-hover:bg-white/20 flex items-center justify-center mb-6 transition-colors duration-300">
-                  <Icon
-                    name={p.icon}
-                    size={22}
-                    className="text-[#7C9E8A] group-hover:text-white transition-colors duration-300"
-                    fallback="Heart"
-                  />
-                </div>
-                <h3 className="font-playfair text-xl text-[#3D3330] group-hover:text-white font-medium mb-3 transition-colors duration-300">
-                  {p.title}
-                </h3>
-                <p className="text-[#6B5E56] group-hover:text-white/80 text-sm leading-relaxed transition-colors duration-300">
-                  {p.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ── TIMELINE ── */}
-      <div className="max-w-6xl mx-auto px-6 lg:px-12 py-24">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-          {/* Left — label + stats */}
+          {/* LEFT — Text content */}
           <div>
-            <p className="text-[#7C9E8A] text-xs tracking-[0.25em] uppercase font-semibold mb-5">
-              Our Journey
+            <h2 className="font-cormorant text-5xl lg:text-6xl font-semibold leading-[1.1] text-[#1E3A8A] mb-6">
+              Decades of Expertise,{" "}
+              <em className="italic text-[#2A5FBF]">One Mission</em>
+              <br />— Better Hearing.
+            </h2>
+
+            <p className="font-dm text-[#4A5568] leading-relaxed text-lg mb-5">
+              Founded in 2004, our clinic has been at the forefront of audiological care — combining cutting-edge diagnostic technology with compassionate, individualized treatment for every patient who walks through our doors.
             </p>
-            <h3 className="font-playfair text-4xl text-[#3D3330] font-medium leading-snug mb-10">
-              Two decades of<br />listening closely.
-            </h3>
+            <p className="font-dm text-[#4A5568] leading-relaxed mb-10">
+              Whether you're experiencing mild hearing loss or seeking advanced hearing aid fitting, our multidisciplinary team delivers care that restores confidence, connection, and quality of life.
+            </p>
 
-            <div className="flex flex-wrap gap-4">
-              {[
-                { n: "20+", l: "Years" },
-                { n: "8,500+", l: "Patients" },
-                { n: "98%", l: "Satisfaction" },
-              ].map((s) => (
-                <div
-                  key={s.l}
-                  className="bg-[#EAF0EB] rounded-2xl px-6 py-4 text-center"
-                >
-                  <p className="font-playfair text-3xl font-semibold text-[#4A7360]">{s.n}</p>
-                  <p className="text-[#7C9E8A] text-xs tracking-widest uppercase mt-1">{s.l}</p>
-                </div>
-              ))}
-            </div>
-
-            <button className="mt-10 font-nunito font-semibold px-8 py-4 bg-[#3D3330] text-[#FAF7F2] rounded-2xl hover:bg-[#4A7360] transition-colors duration-300 text-sm tracking-wide flex items-center gap-2 group">
-              Book a Free Consultation
-              <Icon name="ArrowRight" size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
-            </button>
-          </div>
-
-          {/* Right — timeline */}
-          <div className="relative pl-6">
-            <div className="absolute left-0 top-2 bottom-2 w-px bg-[#D9D0C5]" />
-            <div className="space-y-10">
-              {milestones.map((m, i) => (
-                <div key={m.year} className="relative flex gap-6 items-start">
-                  <div className={`absolute -left-[1.35rem] top-1 w-3 h-3 rounded-full border-2 ${i === milestones.length - 1 ? 'bg-[#7C9E8A] border-[#7C9E8A]' : 'bg-[#FAF7F2] border-[#C4B8A8]'}`} />
+            {/* Values */}
+            <div className="space-y-6">
+              {values.map((v) => (
+                <div key={v.title} className="flex gap-4 items-start group">
+                  <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-white shadow-sm border border-[#E2E8F0] flex items-center justify-center group-hover:bg-[#1E3A8A] transition-colors duration-300">
+                    <Icon
+                      name={v.icon}
+                      size={20}
+                      className="text-[#1E3A8A] group-hover:text-white transition-colors duration-300"
+                    />
+                  </div>
                   <div>
-                    <p className="font-playfair text-[#7C9E8A] font-semibold text-sm mb-1">{m.year}</p>
-                    <p className="text-[#6B5E56] text-sm leading-relaxed">{m.text}</p>
+                    <h4 className="font-dm font-semibold text-[#1E3A8A] mb-1">{v.title}</h4>
+                    <p className="font-dm text-sm text-[#718096] leading-relaxed">{v.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* CTA */}
+            <div className="mt-10 flex items-center gap-6">
+              <button className="font-dm font-medium px-7 py-3.5 bg-[#1E3A8A] text-white rounded-lg hover:bg-[#162d6e] transition-colors duration-200 text-sm tracking-wide">
+                Meet Our Team
+              </button>
+              <button className="font-dm font-medium text-[#1E3A8A] text-sm flex items-center gap-2 hover:gap-3 transition-all duration-200">
+                Book a Consultation
+                <Icon name="ArrowRight" size={16} />
+              </button>
+            </div>
           </div>
+
+          {/* RIGHT — Image collage */}
+          <div className="relative h-[580px] lg:h-[680px]">
+
+            {/* Large main image */}
+            <div className="absolute top-0 right-0 w-[75%] h-[72%] rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="https://cdn.ezst.app/projects/d5a26abe-18bd-4a08-a1ed-2f43f30dcb6d/files/25346a03-62d9-455a-9166-a8fb8bcd1b77.jpg"
+                alt="Our clinic interior"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/20 to-transparent" />
+            </div>
+
+            {/* Doctor portrait — bottom left */}
+            <div className="absolute bottom-16 left-0 w-[48%] h-[54%] rounded-2xl overflow-hidden shadow-xl border-4 border-[#F8F5F0]">
+              <img
+                src="https://cdn.ezst.app/projects/d5a26abe-18bd-4a08-a1ed-2f43f30dcb6d/files/69d088fb-de26-45a0-86d0-b9e0dd0b48cc.jpg"
+                alt="Our lead audiologist"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+
+            {/* Hearing aid fitting — right bottom */}
+            <div className="absolute bottom-0 right-0 w-[42%] h-[32%] rounded-2xl overflow-hidden shadow-lg border-4 border-[#F8F5F0]">
+              <img
+                src="https://cdn.ezst.app/projects/d5a26abe-18bd-4a08-a1ed-2f43f30dcb6d/files/fab46a21-3160-42f9-b328-846cb5868e94.jpg"
+                alt="Hearing aid fitting"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+
+            {/* Floating badge — experience */}
+            <div className="absolute top-6 left-4 bg-white rounded-2xl shadow-lg px-5 py-4 border border-[#E2E8F0]">
+              <p className="font-cormorant text-4xl font-bold text-[#1E3A8A] leading-none">20+</p>
+              <p className="font-dm text-xs text-[#718096] mt-1 leading-tight">Years of<br/>trusted care</p>
+            </div>
+
+            {/* Floating badge — rating */}
+            <div className="absolute bottom-28 right-4 bg-[#1E3A8A] rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                <Icon name="Star" size={16} className="text-white fill-white" />
+              </div>
+              <div>
+                <p className="font-dm text-white font-semibold text-sm">4.9 / 5.0</p>
+                <p className="font-dm text-white/70 text-xs">Patient Rating</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats bar */}
+        <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6">
+          {stats.map((s, i) => (
+            <div
+              key={s.label}
+              className={`text-center py-8 px-4 rounded-2xl ${
+                i === 0
+                  ? "bg-[#1E3A8A] text-white"
+                  : "bg-white border border-[#E2E8F0]"
+              } shadow-sm`}
+            >
+              <p
+                className={`font-cormorant text-5xl font-bold leading-none mb-2 ${
+                  i === 0 ? "text-white" : "text-[#1E3A8A]"
+                }`}
+              >
+                {s.value}
+              </p>
+              <p
+                className={`font-dm text-sm ${
+                  i === 0 ? "text-white/70" : "text-[#718096]"
+                }`}
+              >
+                {s.label}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

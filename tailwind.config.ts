@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				playfair: ['Playfair Display', 'Georgia', 'serif'],
-				nunito: ['Nunito', 'sans-serif'],
+				cormorant: ['Cormorant Garamond', 'Georgia', 'serif'],
+				dm: ['DM Sans', 'sans-serif'],
 			},
 			colors: {
 				warm: {
