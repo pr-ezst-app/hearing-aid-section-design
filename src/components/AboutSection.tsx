@@ -3,175 +3,130 @@ import Icon from "@/components/ui/icon";
 const stats = [
   { value: "20+", label: "Years of Experience" },
   { value: "8,500+", label: "Patients Helped" },
-  { value: "15", label: "Certified Specialists" },
   { value: "98%", label: "Satisfaction Rate" },
 ];
 
 const values = [
-  {
-    icon: "Stethoscope",
-    title: "Clinical Excellence",
-    desc: "Board-certified audiologists with advanced diagnostics and evidence-based treatment protocols.",
-  },
-  {
-    icon: "Heart",
-    title: "Patient-Centered Care",
-    desc: "We listen to your concerns, your lifestyle, and your goals before recommending any solution.",
-  },
-  {
-    icon: "ShieldCheck",
-    title: "Trusted Technology",
-    desc: "Partnered with world-leading hearing aid brands — fitted, tuned, and supported by our team.",
-  },
+  { icon: "Stethoscope", text: "Advanced diagnostics & testing" },
+  { icon: "Ear", text: "Custom hearing aid fitting" },
+  { icon: "Users", text: "Multidisciplinary specialist team" },
+  { icon: "ShieldCheck", text: "Lifetime aftercare & support" },
 ];
 
 export default function AboutSection() {
   return (
-    <section
-      id="about"
-      className="relative bg-[#F8F5F0] overflow-hidden py-24 lg:py-32"
-    >
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#EBF0FB] opacity-50 translate-x-1/3 -translate-y-1/4 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#1E3A8A] opacity-5 -translate-x-1/2 translate-y-1/3 pointer-events-none" />
+    <section id="about" className="font-dm overflow-hidden">
+      <div className="flex flex-col lg:flex-row min-h-[90vh]">
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+        {/* ── LEFT PANEL — Blue ── */}
+        <div className="relative lg:w-1/2 bg-[#1E3A8A] px-10 py-20 lg:px-16 lg:py-24 flex flex-col justify-between">
 
-        {/* Top label */}
-        <div className="flex items-center gap-3 mb-6">
-          <div className="h-px w-10 bg-[#C4975A]" />
-          <span className="text-[#C4975A] text-sm tracking-[0.2em] uppercase font-dm font-medium">
-            About Our Clinic
-          </span>
-        </div>
+          {/* Noise texture */}
+          <div
+            className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+              backgroundSize: "200px",
+            }}
+          />
 
-        {/* Main grid */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Decorative rings */}
+          <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full border border-white/10 translate-x-1/2 translate-y-1/2 pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-52 h-52 rounded-full border border-white/10 translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
-          {/* LEFT — Text content */}
-          <div>
-            <h2 className="font-cormorant text-5xl lg:text-6xl font-semibold leading-[1.1] text-[#1E3A8A] mb-6">
-              Decades of Expertise,{" "}
-              <em className="italic text-[#2A5FBF]">One Mission</em>
-              <br />— Better Hearing.
+          {/* Content */}
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-10">
+              <div className="h-px w-8 bg-[#C4975A]" />
+              <span className="text-[#C4975A] text-xs tracking-[0.25em] uppercase font-medium">
+                About Us
+              </span>
+            </div>
+
+            <h2 className="font-cormorant text-5xl lg:text-[3.5rem] font-semibold text-white leading-[1.1] mb-8">
+              We've been restoring<br />
+              hearing —{" "}
+              <em className="italic text-[#A8C0F8]">and lives</em>
+              <br />— since 2004.
             </h2>
 
-            <p className="font-dm text-[#4A5568] leading-relaxed text-lg mb-5">
-              Founded in 2004, our clinic has been at the forefront of audiological care — combining cutting-edge diagnostic technology with compassionate, individualized treatment for every patient who walks through our doors.
-            </p>
-            <p className="font-dm text-[#4A5568] leading-relaxed mb-10">
-              Whether you're experiencing mild hearing loss or seeking advanced hearing aid fitting, our multidisciplinary team delivers care that restores confidence, connection, and quality of life.
+            <p className="text-white/70 leading-relaxed text-base lg:text-lg mb-12 max-w-md">
+              Our clinic was founded on one belief: every person deserves to hear the world fully. Two decades later, that mission still drives everything we do — from first consultation to long-term care.
             </p>
 
-            {/* Values */}
-            <div className="space-y-6">
+            <ul className="space-y-4 mb-14">
               {values.map((v) => (
-                <div key={v.title} className="flex gap-4 items-start group">
-                  <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-white shadow-sm border border-[#E2E8F0] flex items-center justify-center group-hover:bg-[#1E3A8A] transition-colors duration-300">
-                    <Icon
-                      name={v.icon}
-                      size={20}
-                      className="text-[#1E3A8A] group-hover:text-white transition-colors duration-300"
-                    />
+                <li key={v.text} className="flex items-center gap-4">
+                  <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <Icon name={v.icon} size={17} className="text-[#A8C0F8]" fallback="Check" />
                   </div>
-                  <div>
-                    <h4 className="font-dm font-semibold text-[#1E3A8A] mb-1">{v.title}</h4>
-                    <p className="font-dm text-sm text-[#718096] leading-relaxed">{v.desc}</p>
-                  </div>
-                </div>
+                  <span className="text-white/80 text-sm">{v.text}</span>
+                </li>
               ))}
-            </div>
+            </ul>
 
-            {/* CTA */}
-            <div className="mt-10 flex items-center gap-6">
-              <button className="font-dm font-medium px-7 py-3.5 bg-[#1E3A8A] text-white rounded-lg hover:bg-[#162d6e] transition-colors duration-200 text-sm tracking-wide">
-                Meet Our Team
+            <div className="flex flex-wrap gap-4">
+              <button className="px-7 py-3.5 bg-white text-[#1E3A8A] rounded-lg font-semibold text-sm hover:bg-[#EBF0FB] transition-colors duration-200">
+                Book a Free Consultation
               </button>
-              <button className="font-dm font-medium text-[#1E3A8A] text-sm flex items-center gap-2 hover:gap-3 transition-all duration-200">
-                Book a Consultation
-                <Icon name="ArrowRight" size={16} />
+              <button className="px-7 py-3.5 border border-white/30 text-white rounded-lg font-medium text-sm hover:bg-white/10 transition-colors duration-200 flex items-center gap-2">
+                Meet Our Team <Icon name="ArrowRight" size={15} />
               </button>
             </div>
           </div>
 
-          {/* RIGHT — Image collage */}
-          <div className="relative h-[580px] lg:h-[680px]">
+          {/* Stats */}
+          <div className="relative z-10 mt-16 grid grid-cols-3 gap-4 border-t border-white/15 pt-10">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <p className="font-cormorant text-4xl font-bold text-white leading-none">{s.value}</p>
+                <p className="text-white/50 text-xs mt-2 leading-snug">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
-            {/* Large main image */}
-            <div className="absolute top-0 right-0 w-[75%] h-[72%] rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://cdn.ezst.app/projects/d5a26abe-18bd-4a08-a1ed-2f43f30dcb6d/files/25346a03-62d9-455a-9166-a8fb8bcd1b77.jpg"
-                alt="Our clinic interior"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/20 to-transparent" />
-            </div>
+        {/* ── RIGHT PANEL — Photo ── */}
+        <div className="relative lg:w-1/2 min-h-[60vw] lg:min-h-0">
+          <img
+            src="https://cdn.ezst.app/projects/d5a26abe-18bd-4a08-a1ed-2f43f30dcb6d/files/8a76a656-8930-4daa-95de-2e5ceac031ca.jpg"
+            alt="Our clinic"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
 
-            {/* Doctor portrait — bottom left */}
-            <div className="absolute bottom-16 left-0 w-[48%] h-[54%] rounded-2xl overflow-hidden shadow-xl border-4 border-[#F8F5F0]">
-              <img
-                src="https://cdn.ezst.app/projects/d5a26abe-18bd-4a08-a1ed-2f43f30dcb6d/files/69d088fb-de26-45a0-86d0-b9e0dd0b48cc.jpg"
-                alt="Our lead audiologist"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
+          {/* Edge blend */}
+          <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#1E3A8A]/30 to-transparent pointer-events-none" />
 
-            {/* Hearing aid fitting — right bottom */}
-            <div className="absolute bottom-0 right-0 w-[42%] h-[32%] rounded-2xl overflow-hidden shadow-lg border-4 border-[#F8F5F0]">
-              <img
-                src="https://cdn.ezst.app/projects/d5a26abe-18bd-4a08-a1ed-2f43f30dcb6d/files/fab46a21-3160-42f9-b328-846cb5868e94.jpg"
-                alt="Hearing aid fitting"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-
-            {/* Floating badge — experience */}
-            <div className="absolute top-6 left-4 bg-white rounded-2xl shadow-lg px-5 py-4 border border-[#E2E8F0]">
-              <p className="font-cormorant text-4xl font-bold text-[#1E3A8A] leading-none">20+</p>
-              <p className="font-dm text-xs text-[#718096] mt-1 leading-tight">Years of<br/>trusted care</p>
-            </div>
-
-            {/* Floating badge — rating */}
-            <div className="absolute bottom-28 right-4 bg-[#1E3A8A] rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                <Icon name="Star" size={16} className="text-white fill-white" />
+          {/* Floating quote */}
+          <div className="absolute bottom-10 left-6 right-6 lg:left-10 lg:right-10 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl">
+            <div className="flex gap-4 items-start">
+              <div className="w-10 h-10 rounded-full bg-[#EBF0FB] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="Quote" size={18} className="text-[#1E3A8A]" />
               </div>
               <div>
-                <p className="font-dm text-white font-semibold text-sm">4.9 / 5.0</p>
-                <p className="font-dm text-white/70 text-xs">Patient Rating</p>
+                <p className="font-cormorant text-[#1E3A8A] text-xl italic leading-snug mb-3">
+                  "We don't just fit hearing aids — we restore the sounds that matter most to you."
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="h-px flex-1 bg-[#E2E8F0]" />
+                  <p className="font-dm text-xs text-[#718096]">Dr. Sarah Linden, Lead Audiologist</p>
+                </div>
               </div>
             </div>
           </div>
+
+          {/* Star badge */}
+          <div className="absolute top-8 right-8 bg-[#1E3A8A] text-white rounded-2xl px-5 py-4 shadow-xl">
+            <div className="flex items-center gap-1 mb-1">
+              {[...Array(5)].map((_, i) => (
+                <Icon key={i} name="Star" size={12} className="text-[#C4975A] fill-[#C4975A]" />
+              ))}
+            </div>
+            <p className="font-dm font-semibold text-sm">4.9 / 5.0</p>
+            <p className="font-dm text-white/60 text-xs">500+ reviews</p>
+          </div>
         </div>
 
-        {/* Stats bar */}
-        <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`text-center py-8 px-4 rounded-2xl ${
-                i === 0
-                  ? "bg-[#1E3A8A] text-white"
-                  : "bg-white border border-[#E2E8F0]"
-              } shadow-sm`}
-            >
-              <p
-                className={`font-cormorant text-5xl font-bold leading-none mb-2 ${
-                  i === 0 ? "text-white" : "text-[#1E3A8A]"
-                }`}
-              >
-                {s.value}
-              </p>
-              <p
-                className={`font-dm text-sm ${
-                  i === 0 ? "text-white/70" : "text-[#718096]"
-                }`}
-              >
-                {s.label}
-              </p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
