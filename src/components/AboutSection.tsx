@@ -92,27 +92,29 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* ── Features grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* ── Features list ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {features.map((f) => (
             <div
               key={f.title}
-              className="group bg-[#F8FAFF] border border-[#E2EAF8] rounded-2xl p-7 hover:bg-[#1E3A8A] hover:border-[#1E3A8A] transition-all duration-300 cursor-default"
+              className="group flex items-center gap-4 bg-[#F8FAFF] border border-[#E2EAF8] rounded-xl px-5 py-4 hover:bg-[#1E3A8A] hover:border-[#1E3A8A] transition-all duration-300 cursor-default"
             >
-              <div className="w-11 h-11 rounded-xl bg-[#EBF0FB] group-hover:bg-white/15 flex items-center justify-center mb-6 transition-colors duration-300">
+              <div className="w-9 h-9 rounded-lg bg-[#EBF0FB] group-hover:bg-white/15 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
                 <Icon
                   name={f.icon}
-                  size={20}
+                  size={17}
                   className="text-[#1E3A8A] group-hover:text-white transition-colors duration-300"
                   fallback="Check"
                 />
               </div>
-              <h3 className="font-semibold text-[#1E3A8A] group-hover:text-white text-sm mb-2 transition-colors duration-300">
-                {f.title}
-              </h3>
-              <p className="text-[#718096] group-hover:text-white/70 text-xs leading-relaxed transition-colors duration-300">
-                {f.text}
-              </p>
+              <div>
+                <p className="font-semibold text-[#1E3A8A] group-hover:text-white text-xs transition-colors duration-300">
+                  {f.title}
+                </p>
+                <p className="text-[#718096] group-hover:text-white/60 text-xs leading-relaxed transition-colors duration-300 mt-0.5">
+                  {f.text}
+                </p>
+              </div>
             </div>
           ))}
         </div>
