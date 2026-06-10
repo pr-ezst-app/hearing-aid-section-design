@@ -2,26 +2,10 @@ import Icon from "@/components/ui/icon";
 import { useState } from "react";
 
 const features = [
-  {
-    icon: "Stethoscope",
-    title: "Advanced Diagnostics",
-    text: "Full audiological testing in certified soundproof suites — results explained same day.",
-  },
-  {
-    icon: "Ear",
-    title: "Custom Hearing Aids",
-    text: "Fitted, tuned, and programmed to your exact hearing profile — invisible options available.",
-  },
-  {
-    icon: "ShieldCheck",
-    title: "Lifetime Aftercare",
-    text: "Every patient receives ongoing support, free fine-tuning, and annual check-ups.",
-  },
-  {
-    icon: "Users",
-    title: "Specialist Team",
-    text: "Board-certified audiologists with 20+ years of combined clinical experience.",
-  },
+  { icon: "Stethoscope", title: "Advanced Diagnostics", text: "Full audiological testing in certified soundproof suites — results explained same day." },
+  { icon: "Ear", title: "Custom Hearing Aids", text: "Fitted, tuned, and programmed to your exact hearing profile — invisible options available." },
+  { icon: "ShieldCheck", title: "Lifetime Aftercare", text: "Every patient receives ongoing support, free fine-tuning, and annual check-ups." },
+  { icon: "Users", title: "Specialist Team", text: "Board-certified audiologists with 20+ years of combined clinical experience." },
 ];
 
 const stats = [
@@ -30,102 +14,96 @@ const stats = [
   { value: "98%", label: "Satisfaction" },
 ];
 
-// ── Variant A: Numbered List ──
-function FeaturesNumbered() {
+// ── A) TRUST & PROFESSIONAL ──
+// Checklist rows on a blue-tinted band
+function FeaturesTrust() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {features.map((f, i) => (
-        <div key={f.title} className="group cursor-default">
-          <p className="font-cormorant text-6xl font-bold text-[#E2EAF8] group-hover:text-[#C4975A] leading-none mb-4 transition-colors duration-300 select-none">
-            {String(i + 1).padStart(2, "0")}
-          </p>
-          <div className="h-px w-10 bg-[#C4975A] mb-4" />
-          <p className="font-semibold text-[#1E3A8A] text-sm mb-2">{f.title}</p>
-          <p className="text-[#718096] text-xs leading-relaxed">{f.text}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ── Variant B: Icon + Divider Line ──
-function FeaturesIconLine() {
-  return (
-    <div className="divide-y divide-[#E2EAF8]">
+    <div className="bg-[#F0F4FF] rounded-2xl px-8 py-8 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-5">
       {features.map((f) => (
-        <div key={f.title} className="group flex items-center gap-6 py-5 hover:pl-2 transition-all duration-300">
-          <div className="w-10 h-10 rounded-full border border-[#E2EAF8] group-hover:border-[#C4975A] group-hover:bg-[#FDF6EE] flex items-center justify-center flex-shrink-0 transition-all duration-300">
-            <Icon name={f.icon} size={17} className="text-[#C4975A]" fallback="Check" />
+        <div key={f.title} className="flex items-start gap-4">
+          <div className="mt-0.5 w-6 h-6 rounded-full bg-[#1E3A8A] flex items-center justify-center flex-shrink-0">
+            <Icon name="Check" size={13} className="text-white" />
           </div>
-          <div className="flex-1 min-w-0">
+          <div>
             <p className="font-semibold text-[#1E3A8A] text-sm">{f.title}</p>
-            <p className="text-[#718096] text-xs mt-0.5 leading-relaxed">{f.text}</p>
+            <p className="text-[#64748B] text-xs mt-0.5 leading-relaxed">{f.text}</p>
           </div>
-          <Icon name="ArrowRight" size={14} className="text-[#CBD5E0] group-hover:text-[#C4975A] flex-shrink-0 transition-colors duration-300" />
         </div>
       ))}
     </div>
   );
 }
 
-// ── Variant C: Highlight Tabs ──
-function FeaturesHighlightTabs() {
-  const [active, setActive] = useState(0);
+// ── B) WARM & WELCOMING ──
+// Soft coloured cards with white icon backgrounds
+function FeaturesWarm() {
+  const palette = [
+    { bg: "bg-[#FFF7ED]", border: "border-[#FDE8C8]", icon: "text-[#C4975A]" },
+    { bg: "bg-[#EFF6FF]", border: "border-[#BFDBFE]", icon: "text-[#3B82F6]" },
+    { bg: "bg-[#F0FDF4]", border: "border-[#BBF7D0]", icon: "text-[#22C55E]" },
+    { bg: "bg-[#FDF4FF]", border: "border-[#E9D5FF]", icon: "text-[#A855F7]" },
+  ];
   return (
-    <div className="grid lg:grid-cols-2 gap-8 items-center">
-      <div>
-        {features.map((f, i) => (
-          <button
-            key={f.title}
-            onClick={() => setActive(i)}
-            className="w-full text-left flex items-center gap-5 py-4 px-5 rounded-xl transition-all duration-200 group relative"
-          >
-            {/* Active bar */}
-            <div className={`absolute left-0 top-3 bottom-3 w-[3px] rounded-full transition-all duration-300 ${active === i ? "bg-[#C4975A]" : "bg-transparent"}`} />
-            <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-200 ${active === i ? "bg-[#1E3A8A]" : "bg-[#F1F5F9] group-hover:bg-[#EBF0FB]"}`}>
-              <Icon name={f.icon} size={16} className={active === i ? "text-white" : "text-[#718096]"} fallback="Check" />
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      {features.map((f, i) => {
+        const p = palette[i];
+        return (
+          <div key={f.title} className={`${p.bg} border ${p.border} rounded-2xl p-6 flex flex-col gap-4`}>
+            <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center">
+              <Icon name={f.icon} size={22} className={p.icon} fallback="Check" />
             </div>
-            <p className={`font-semibold text-sm transition-colors duration-200 ${active === i ? "text-[#1E3A8A]" : "text-[#718096] group-hover:text-[#4A5568]"}`}>
-              {f.title}
+            <div>
+              <p className="font-semibold text-[#1E293B] text-sm mb-1">{f.title}</p>
+              <p className="text-[#64748B] text-xs leading-relaxed">{f.text}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ── C) BOLD & MODERN ──
+// Dark band with gold numbers
+function FeaturesBold() {
+  return (
+    <div className="bg-[#0F1C36] rounded-2xl overflow-hidden">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+        {features.map((f, i) => (
+          <div key={f.title} className="group px-7 py-8 hover:bg-white/5 transition-colors duration-200">
+            <p className="font-cormorant text-5xl font-bold text-[#C4975A] leading-none mb-5 select-none">
+              {String(i + 1).padStart(2, "0")}
             </p>
-          </button>
+            <Icon name={f.icon} size={20} className="text-white/40 group-hover:text-[#C4975A] mb-4 transition-colors duration-200" fallback="Check" />
+            <p className="font-semibold text-white text-sm mb-2">{f.title}</p>
+            <p className="text-white/50 text-xs leading-relaxed">{f.text}</p>
+          </div>
         ))}
       </div>
-      <div className="bg-[#F8FAFF] border border-[#E2EAF8] rounded-2xl p-8 min-h-[160px] flex flex-col justify-center transition-all duration-300">
-        <div className="w-12 h-12 rounded-xl bg-[#1E3A8A] flex items-center justify-center mb-5">
-          <Icon name={features[active].icon} size={22} className="text-white" fallback="Check" />
-        </div>
-        <p className="font-semibold text-[#1E3A8A] text-base mb-2">{features[active].title}</p>
-        <p className="text-[#718096] text-sm leading-relaxed">{features[active].text}</p>
-      </div>
     </div>
   );
 }
 
-// ── Switcher ──
 const variants = [
-  { id: "numbered", label: "Numbered" },
-  { id: "iconline", label: "Icon + Line" },
-  { id: "tabs", label: "Highlight Tabs" },
+  { id: "trust", label: "Trust & Professional" },
+  { id: "warm",  label: "Warm & Welcoming" },
+  { id: "bold",  label: "Bold & Modern" },
 ];
 
 export default function AboutSection() {
-  const [variant, setVariant] = useState("numbered");
+  const [variant, setVariant] = useState("trust");
 
   return (
     <section id="about" className="font-dm bg-white py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
-        {/* Section label */}
         <div className="flex items-center gap-3 mb-14">
           <div className="h-px w-8 bg-[#C4975A]" />
           <span className="text-[#C4975A] text-xs tracking-[0.25em] uppercase font-medium">About Us</span>
         </div>
 
-        {/* ── Main layout: photo left, content right ── */}
+        {/* Photo + Text */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
-
-          {/* Photo */}
           <div className="relative rounded-3xl overflow-hidden">
             <img
               src="https://cdn.ezst.app/projects/d5a26abe-18bd-4a08-a1ed-2f43f30dcb6d/files/e44f4ad6-13b0-4cb4-82db-8603fd185952.jpg"
@@ -151,7 +129,6 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Text content */}
           <div>
             <h2 className="font-cormorant text-5xl lg:text-[3.4rem] font-semibold text-[#1E3A8A] leading-[1.08] mb-6">
               Restoring hearing —<br />
@@ -172,9 +149,9 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* ── Features variant switcher ── */}
-        <div className="flex items-center gap-2 mb-8">
-          <span className="text-[#A0AEC0] text-xs mr-2">Features style:</span>
+        {/* Style picker */}
+        <div className="flex items-center gap-2 mb-6 flex-wrap">
+          <span className="text-[#A0AEC0] text-xs mr-1">Pick a style:</span>
           {variants.map((v) => (
             <button
               key={v.id}
@@ -190,10 +167,9 @@ export default function AboutSection() {
           ))}
         </div>
 
-        {/* ── Active features variant ── */}
-        {variant === "numbered" && <FeaturesNumbered />}
-        {variant === "iconline" && <FeaturesIconLine />}
-        {variant === "tabs"     && <FeaturesHighlightTabs />}
+        {variant === "trust" && <FeaturesTrust />}
+        {variant === "warm"  && <FeaturesWarm />}
+        {variant === "bold"  && <FeaturesBold />}
 
       </div>
     </section>
